@@ -1,0 +1,33 @@
+.App {
+  text-align: left;
+}
+.customers {
+  background-color: #282c34;
+  color: white;
+  font-size: 2rem;
+  list-style: none;
+  margin: 1rem;
+}
+.customers li {
+  margin: 0.7rem;
+}
+.App button {
+  padding: 0.7rem;
+  font-size: 1.5rem;
+  line-height: 2rem;
+  font-weight: bold;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 25vh;
+  display: flex;
+  flex-direction: column;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+.App-header h1 {
+  margin-left: 2rem;
+  font-size: 2rem;
+}
+
