@@ -11,11 +11,14 @@
 .customers li {
   margin: 0.7rem;
 }
-.App button {
+.App button, input {
   padding: 0.7rem;
   font-size: 1.5rem;
   line-height: 2rem;
   font-weight: bold;
+}
+.App input {
+  margin-right: 1rem;
 }
 
 .App-header {

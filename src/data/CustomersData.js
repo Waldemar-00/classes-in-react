@@ -1,5 +1,5 @@
-function CUSTOMER_DATA() {
-  return [
+const CUSTOMER_DATA = 
+  [
     {
       id: 'Helen',
       name: 'Helen'
@@ -11,7 +11,10 @@ function CUSTOMER_DATA() {
     {
       id: 'Briana',
       name: 'Briana'
+    },
+    {
+      id: 'Hanna',
+      name: 'Hanna'
     }
   ]
-}
 export default CUSTOMER_DATA

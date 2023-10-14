@@ -2,7 +2,7 @@ import { Component } from 'react'
 import CUSTOMER_DATA from '../data/CustomersData'
 class Customers extends Component {
   render() {
-    const customers = [...(CUSTOMER_DATA())]
+    let customers = this.props.array || [...(CUSTOMER_DATA)]
     return <ul className={this.props.className}>
             {
               customers.map(customer => {
