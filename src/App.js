@@ -4,6 +4,7 @@ import Input from './UI/Input'
 import Customers from './components/Customers'
 import CustomersContext from './data/CustomersContext'
 import { Component } from 'react'
+import ErrorBoundary from './components/ErrorBoundary'
 class App extends Component {
   static contextType = CustomersContext
   constructor() {
@@ -67,31 +68,33 @@ class App extends Component {
   }
   render() {
     return (
-      <CustomersContext.Provider value={this.context}>
-        <div className={styles.App}>
-          <header className={styles['App-header']}>
-            <h1>Hi, Classes, in Recat!</h1>
-          </header>
-          <Button className={styles.button}
-            foo={this.toggleHiding.bind(this)}
-          >Toggle customer hiding</Button>
-          <Input className={styles.input}
-            type='text'
-            placeholder='Customer Filter'
-            blur={this.blur.bind(this)}
-            focus={this.focus.bind(this)}
-            foo={this.changeValue.bind(this)}
-            value={(e) => this.changeValue(e).bind(this)}
-          />
-          {
-            this.state.hiding &&
-            <Customers
-              className={styles.customers}
-              array={this.state.filtered}
+      <ErrorBoundary>
+        <CustomersContext.Provider value={this.context}>
+          <div className={styles.App}>
+            <header className={styles['App-header']}>
+              <h1>Hi, Classes, in Recat!</h1>
+            </header>
+            <Button className={styles.button}
+              foo={this.toggleHiding.bind(this)}
+            >Toggle customer hiding</Button>
+            <Input className={styles.input}
+              type='text'
+              placeholder='Customer Filter'
+              blur={this.blur.bind(this)}
+              focus={this.focus.bind(this)}
+              foo={this.changeValue.bind(this)}
+              value={(e) => this.changeValue(e).bind(this)}
             />
-          }
-        </div>
-      </CustomersContext.Provider>
+            {
+              this.state.hiding &&
+              <Customers
+                className={styles.customers}
+                array={this.state.filtered}
+              />
+            }
+          </div>
+          </CustomersContext.Provider>
+      </ErrorBoundary>
       ) 
     }
 }
