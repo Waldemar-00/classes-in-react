@@ -1,5 +1,6 @@
-const CUSTOMER_DATA = 
-  [
+import { createContext } from "react"
+const CustomersContext = createContext({
+  customers: [
     {
       id: 'Helen',
       name: 'Helen'
@@ -17,4 +18,5 @@ const CUSTOMER_DATA =
       name: 'Hanna'
     }
   ]
-export default CUSTOMER_DATA
+})
+export default CustomersContext

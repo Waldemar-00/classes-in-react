@@ -2,9 +2,10 @@ import styles from './App.module.css'
 import Button from './UI/Button'
 import Input from './UI/Input'
 import Customers from './components/Customers'
-import CUSTOMER_DATA from './data/CustomersData'
+import CustomersContext from './data/CustomersContext'
 import { Component } from 'react'
 class App extends Component {
+  static contextType = CustomersContext
   constructor() {
     super()
     this.state = {
@@ -21,7 +22,7 @@ class App extends Component {
   filterCustomers() {
     this.setState((state) => {
       return {
-        filtered: state.filtered = (CUSTOMER_DATA)
+        filtered: state.filtered = (this.context.customers)
           .filter(customer => customer.name.toLowerCase()
             .includes(this.state.value.toLowerCase()))
       }
@@ -50,7 +51,8 @@ class App extends Component {
   }
 
   // componentDidMount() {
-  //fetch('URL')
+    // console.log(this.context.customers)
+    // fetch('URL')
   // }
   // componentDidUpdate(prevProps, prevState) {
     // if(prevProps !== this.state.value){}
@@ -64,7 +66,8 @@ class App extends Component {
     })
   }
   render() {
-      return (
+    return (
+      <CustomersContext.Provider value={this.context}>
         <div className={styles.App}>
           <header className={styles['App-header']}>
             <h1>Hi, Classes, in Recat!</h1>
@@ -88,6 +91,7 @@ class App extends Component {
             />
           }
         </div>
+      </CustomersContext.Provider>
       ) 
     }
 }

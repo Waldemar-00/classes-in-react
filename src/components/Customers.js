@@ -1,8 +1,9 @@
 import { Component } from 'react'
-import CUSTOMER_DATA from '../data/CustomersData'
+import CustomersContext from '../data/CustomersContext'
 class Customers extends Component {
+  static contextType = CustomersContext
   render() {
-    let customers = this.props.array || [...(CUSTOMER_DATA)]
+    let customers = this.props.array || [...(this.context.customers)]
     return <ul className={this.props.className}>
             {
               customers.map(customer => {
